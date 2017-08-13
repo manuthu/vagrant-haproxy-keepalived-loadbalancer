@@ -1,0 +1,18 @@
+vrrp_script chk_haproxy {
+  script "pidof haproxy"
+  interval 2
+  weight 2
+}
+
+vrrp_instance VI_1 {
+  interface eth1
+  state BACKUP
+  virtual_router_id 11
+  priority 100
+  virtual_ipaddress {
+      192.168.50.100
+  }
+  track_script {
+    chk_haproxy
+  }
+}
