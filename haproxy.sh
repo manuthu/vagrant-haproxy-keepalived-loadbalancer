@@ -46,8 +46,8 @@ frontend  http *:80
 
 backend web
 	balance roundrobin
-	server  webserver1 192.168.50.10:80 check inter 500 fail 3 rise 2
-	server  webserver2 192.168.50.20:80 check inter 500 fail 3 rise 2
+	server  webserver1 192.168.50.10:80 check
+	server  webserver2 192.168.50.20:80 check
 
 # Configure statistics page
 listen stats :9000
